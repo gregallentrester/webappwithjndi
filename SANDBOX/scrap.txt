@@ -1,0 +1,18 @@
+https://www.ctl.io/developers/blog/post/the-easy-way-to-deploy-java-tomcat-with-docker
+
+
+$ brew install maven boot2docker # on OS X
+$ boot2docker init ; boot2docker up # on OS X
+$ sudo gem install bundler highline building
+
+$ git clone https://github.com/jesperfj/webapp-with-jndi
+$ cd webapp-with-jndi
+$ mvn package
+$ cd target/my-webapp
+$ building -b http://github.com/jesperfj/buildpack-tomcat.git myapp
+create Dockerfile
+building docker build -t hhvm-app:latest .
+hint: To run your app, try: docker run -d -p 8080 -e "PORT=8080" myapp
+hint To re-build your app, try: docker build -t myapp .
+$ JAVA_APP_ID=$(docker run -d -p 8080 -e "PORT=8080" myapp)
+$ curl `docker port $JAVA_APP_ID 8080`/hello Hello World

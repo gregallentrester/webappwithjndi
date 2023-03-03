@@ -1,0 +1,8 @@
+#!/bin/bash -p
+
+# https://www.ctl.io/developers/blog/post/the-easy-way-to-deploy-java-tomcat-with-docker
+
+
+building -b http://github.com/jesperfj/buildpack-tomcat.git myapp
+create Dockerfile
+building docker build -t hhvm-app:latest .
